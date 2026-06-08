@@ -178,7 +178,7 @@ jobs:
       - name: Clone RTK repo (pinned to known-good commit)
         run: |
           git init ./redux-toolkit
-          git -C ./redux-toolkit fetch --depth 1 https://github.com/reduxjs/redux-toolkit.git 7c49510ff5dc6aad7cda24a59ec6c38a1af053be
+          git -C ./redux-toolkit fetch --depth 1 https://github.com/reduxjs/redux-toolkit.git d974a4d252090eab9e029842042757bc43af8980
           git -C ./redux-toolkit checkout FETCH_HEAD
 
       - name: Cache example deps
