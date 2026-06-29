@@ -5,14 +5,10 @@ import type {
   FunctionComponent,
   JSX,
 } from 'react'
-
-import type { Action, UnknownAction, Dispatch } from 'redux'
-
-import type { NonReactStatics } from './utils/hoistStatics'
-
+import type { Action, Dispatch, UnknownAction } from 'redux'
 import type { ConnectProps } from './components/connect'
-
 import type { UseSelectorOptions } from './hooks/useSelector'
+import type { NonReactStatics } from './utils/hoistStatics'
 
 export type FixTypeLater = any
 
@@ -169,12 +165,10 @@ export type ResolveThunks<TDispatchProps> = TDispatchProps extends {
 export interface TypedUseSelectorHook<TState> {
   <TSelected>(
     selector: (state: TState) => TSelected,
-    equalityFn?: EqualityFn<NoInfer<TSelected>>,
+    equalityFn?: EqualityFn<TSelected>,
   ): TSelected
   <Selected = unknown>(
     selector: (state: TState) => Selected,
     options?: UseSelectorOptions<Selected>,
   ): Selected
 }
-
-export type NoInfer<T> = [T][T extends any ? 0 : never]
